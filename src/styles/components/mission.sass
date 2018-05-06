@@ -1,0 +1,42 @@
+@import "~styles/settings"
+@import "~styles/base"
+
+.mission
+  display: flex
+  height: 50rem
+  background-color: $cool-grey
+  background: center / cover no-repeat url("~/rocket.png")
+  justify-content: center
+  align-items: flex-end
+  padding: 1rem 0
+
+  &__links
+    margin-bottom: 5rem
+    text-align: center
+
+  &__links > h3
+    color: $white
+    font-size: 2.4rem
+    text-transform: uppercase
+    letter-spacing: 1.8rem
+    font-weight: 600
+    margin: 0 0 3rem
+
+  &__button
+    background-color: rgba(0, 0, 0, 0.1)
+    border: 0.1rem solid $white
+    padding: 1rem 4rem
+    border-radius: 2rem
+    margin-right: 1rem
+    text-transform: uppercase
+    font-size: 1.4rem
+    letter-spacing: 0.1rem
+    color: $white
+    cursor: pointer
+
+  &__button:hover
+    background-color: $white
+    color: $dark-grey
+
+  &__button:last-of-type
+    margin-right: 0

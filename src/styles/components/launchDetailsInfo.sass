@@ -1,0 +1,54 @@
+@import "~styles/settings"
+@import "~styles/base"
+
+.info-section
+  margin: 0 2rem
+  display: flex
+  justify-content: space-between
+
+  &__launch-info, &__extensive-info
+    width: 50%
+    font-size: 1.4rem
+    letter-spacing: 0.1rem
+
+  &__date, &__info-title, &__counter
+    text-transform: uppercase
+
+  &__date
+    color: $cool-grey
+    letter-spacing: 1rem;
+
+  &__info-title
+    font-size: 3.6rem
+    font-weight: 600
+    margin-bottom: 1rem
+
+  &__details, &__rocket, &__launch-pad
+    margin-bottom: 6rem
+
+  &__header--gold
+    letter-spacing: 1.8rem;
+    text-transform: uppercase
+    color: $desert
+    border-bottom: 0.2rem solid $desert
+    padding-bottom: 2rem
+
+  &__rocket-details, &__details-details
+    display: flex
+    justify-content: space-between
+
+  &__rocket-details div, &__details-details div
+    width: 50%
+    padding: 0 0 0 2rem
+    border-left: 0.2rem dotted $cool-grey
+
+  &__rocket-details ul, &__details-details ul
+    margin: 0
+    padding: 0
+
+  &__rocket-details li, &__details-details li
+    padding: 0.5rem
+    text-transform: uppercase
+
+  &__title-list
+    color: $cool-grey

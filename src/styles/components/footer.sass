@@ -1,0 +1,60 @@
+@import "~styles/settings"
+@import "~styles/base"
+
+.footer
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  height: 10rem
+  text-transform: uppercase
+  letter-spacing: 0.1rem
+  font-size: 1.4rem
+  background-color: $footer-background-color
+  padding: 0.5rem 4rem
+
+  &__social
+    display: flex
+    align-items: center;
+
+  &__social a
+    position: relative
+    padding-right: 1.5rem
+    margin-right: 1.5rem
+
+  &__social a h4
+    font-weight: 400
+    color: $brawnish-grey
+    position: relative
+
+  &__social a h4:hover
+    color: $cool-grey
+
+  &__border
+    border-right: 0.1rem solid $brawnish-grey
+    position: absolute
+    top: 2.3rem
+    bottom: 1.7rem
+    right: 0
+
+  &__social nav
+    display: flex
+    align-items: center
+
+  &__social nav ul
+    display: flex
+    padding: 0
+    margin: 0
+
+  &__social nav ul li a
+    margin-right: 0.2rem
+    color: $cool-grey
+
+  &__social nav ul li a:hover
+    color: $white
+
+  &__social nav ul li:last-of-type
+    margin-right: 0
+
+  &__copy p
+    color: $brawnish-grey
