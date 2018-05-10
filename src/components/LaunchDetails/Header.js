@@ -1,7 +1,7 @@
 import React from 'react';
 
-import '../styles/components/header.sass';
-import logo from '../assets/img/space_x_logo_bw_centered.png';
+import '../../styles/components/header.sass';
+import logo from '../../assets/img/space_x_logo_bw_centered.png';
 
 const Header = () => (
   <header className="header">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/components/mission.sass';
+import '../../styles/components/mission.sass';
 
 const Mission = () => (
   <section className="mission">

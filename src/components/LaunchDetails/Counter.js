@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../styles/components/launchDetailsInfo.sass';
+import '../../styles/components/launchDetailsInfo.sass';
 
 class Counter extends Component {
   state = {

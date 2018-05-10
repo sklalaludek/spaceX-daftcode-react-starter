@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from '../components/Header';
-import LaunchDetailsInfo from '../components/LaunchDetailsInfo';
-import Footer from '../components/Footer';
-import Mission from '../components/Mission';
+import PropTypes from 'prop-types';
+import Header from '../components/LaunchDetails/Header';
+import LaunchDetailsInfo from '../components/LaunchDetails/LaunchDetailsInfo';
+import Mission from '../components/LaunchDetails/Mission';
+import Footer from '../components/LaunchDetails/Footer';
 
 
 const LaunchDetails = props => (
@@ -20,5 +21,17 @@ const LaunchDetails = props => (
     <Footer />
   </div>
 );
+
+LaunchDetails.propTypes = {
+  rocket: PropTypes.object,
+  launch: PropTypes.object,
+  launchSite: PropTypes.object,
+};
+
+LaunchDetails.defaultProps = {
+  rocket: {},
+  launch: {},
+  launchSite: {},
+};
 
 export default LaunchDetails;
