@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/components/launchDetailsInfo.sass';
 import Counter from './Counter';
 
 const LaunchDetailsInfo = props => (

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../../styles/components/footer.sass';
-
 const Footer = () => (
   <footer className="footer">
     <div className="footer__social">
@@ -19,7 +17,7 @@ const Footer = () => (
       </nav>
     </div>
     <div className="footer__copy">
-      <p>2018 space exploration technologies corp.</p>
+      <p>{new Date().getFullYear()} space exploration technologies corp.</p>
     </div>
   </footer>
 );

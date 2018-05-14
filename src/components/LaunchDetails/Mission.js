@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../../styles/components/mission.sass';
-
 const Mission = () => (
   <section className="mission">
     <div className="mission__links">

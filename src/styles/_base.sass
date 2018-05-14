@@ -10,10 +10,6 @@ body
   box-sizing: border-box
   font-family: 'Open Sans', sans-serif
 
-main
-  width: 100%
-  margin: 4rem auto 0
-
 a
   &:visited &:hover &:active
   text-decoration: none
@@ -23,15 +19,23 @@ a
 ul
   list-style-type: none
 
-#page
-  height: 100vh
-  width: 100vw
-
-.container
+.page-container
   display: flex
-  flex-wrap: wrap
-  max-width: 1200px
-  margin: 2rem
+  .page-content
+    flex: 1
+    .list
+      background-color: $almost-black
+
+//  #page
+//   height: 100vh
+//   width: 100vw
+
+
+// .container
+//   display: flex
+//   flex-wrap: wrap
+//   max-width: 1200px
+//   margin: 2rem
 
 .title
   display: none

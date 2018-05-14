@@ -8,6 +8,8 @@ import LaunchDetails from './view/LaunchDetails';
 /* launche list */
 import LaunchesList from './view/LaunchesList';
 import launches from './assets/launches.json';
+/* footer */
+import Footer from './view/Footer';
 
 import './styles/theme.sass';
 
@@ -58,8 +60,11 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
 
   render() {
     return (
-      <main>
-        {this.activeViewComponent}
+      <main className="page-container">
+        <div className="page-content">
+          {this.activeViewComponent}
+          <Footer />
+        </div>
       </main>
     );
   }
