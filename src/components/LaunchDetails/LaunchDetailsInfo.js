@@ -20,21 +20,21 @@ const LaunchDetailsInfo = props => (
             <ul>
               <li><span className="info-section__title-list">name: </span>{props.rocket.name}</li>
               <li><span className="info-section__title-list">company: </span> {props.rocket.company}</li>
-              <li><span className="info-section__title-list">height: </span> {props.rocket.height.meters}m / {props.rocket.height.feet}ft</li>
+              {/* <li><span className="info-section__title-list">height: </span> {props.rocket.height.meters}m / {props.rocket.height.feet}ft</li>
               <li><span className="info-section__title-list">diameter: </span> {props.rocket.diameter.meters}m / {props.rocket.diameter.feet}ft</li>
-              <li><span className="info-section__title-list">mass: </span>{props.rocket.mass.kg}kg / {props.rocket.mass.lb}lb</li>
+              <li><span className="info-section__title-list">mass: </span>{props.rocket.mass.kg}kg / {props.rocket.mass.lb}lb</li> */}
             </ul>
           </div>
           <div>
-            <ul>
+            <ul>{/*
               <li><span className="info-section__title-list">fist-flight: </span>{props.rocket.first_flight}</li>
               <li><span className="info-section__title-list">country: </span>{props.rocket.country}</li>
               <li><span className="info-section__title-list">success rate: </span>{props.rocket.success_rate_pct}%</li>
-              <li><span className="info-section__title-list">cost per launch: </span>${props.rocket.cost_per_launch}</li>
+              <li><span className="info-section__title-list">cost per launch: </span>${props.rocket.cost_per_launch}</li> */}
             </ul>
           </div>
         </div>
-        <p>{props.rocket.description}</p>
+        <p>{/* {props.rocket.description} */}</p>
       </div>
       <div className="info-section__launch-pad">
         <h4 className="info-section__header--gold">launch pad</h4>
@@ -46,11 +46,11 @@ const LaunchDetailsInfo = props => (
           </div>
           <div>
             <ul>
-              <li><span className="info-section__title-list">location: </span>{props.launchSite.location.name}, {props.launchSite.location.region}</li>
+              <li>{/* <span className="info-section__title-list">location: </span>{props.launchSite.location.name}, {props.launchSite.location.region} */}</li>
             </ul>
           </div>
         </div>
-        <p>{props.launchSite.details}</p>
+        <p>{/* {props.launchSite.details}*/}</p>
       </div>
     </div>
   </section>

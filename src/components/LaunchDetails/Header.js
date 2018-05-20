@@ -5,13 +5,11 @@ const Header = props => (
 
   <header className="header">
     <div className="header__navigation container">
-      <div className="header__go-back" >
+      <div onClick={props.onBackClick} className="header__go-back" >
         <div className="header__arrow" />
-        <span onClick={props.onBackClick} >
-          <h3 className="header__go-back-text">
-              go back
-          </h3>
-        </span>
+        <h3 className="header__go-back-text">
+          go back
+        </h3>
       </div>
       <div className="header__logo">
         <img src={logo} alt="logo spacex" />

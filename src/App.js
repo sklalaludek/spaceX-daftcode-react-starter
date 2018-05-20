@@ -1,5 +1,6 @@
 import { hot } from 'react-hot-loader';
 import * as React from 'react';
+import { RingLoader } from 'react-spinners';
 /* launche details */
 import launch from './assets/launch.json';
 import launchSite from './assets/launch_site.json';
@@ -7,7 +8,7 @@ import rocket from './assets/rocket.json';
 import LaunchDetails from './view/LaunchDetails';
 /* launche list */
 import LaunchesList from './view/LaunchesList';
-import launches from './assets/launches.json';
+
 /* footer */
 import Footer from './view/Footer';
 
@@ -18,6 +19,10 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     super(props);
     this.state = {
       viewName: 'list',
+      launches: [],
+      launch: '',
+      launchSite: '',
+      rocket: '',
     };
 
     this.handleLaunchClick = this.handleLaunchClick.bind(this);
@@ -25,13 +30,13 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   }
 
   get activeViewComponent() {
-    const { viewName } = this.state;
+    const { viewName, launches } = this.state;
 
     switch (viewName) {
       case 'list':
         return (
           <LaunchesList
-            launches={launches}
+            launches={this.state.launches}
             onLaunchClick={this.handleLaunchClick}
           />
         );
@@ -39,9 +44,9 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
       case 'details':
         return (
           <LaunchDetails
-            launch={launch}
-            launchSite={launchSite}
-            rocket={rocket}
+            launch={this.state.launch}
+            launchSite={this.state.launch.launchSite}
+            rocket={this.state.launch.rocket}
             onBackClick={this.handleBackClick}
           />
         );
@@ -50,8 +55,15 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     }
   }
 
-  handleLaunchClick() {
-    this.setState({ viewName: 'details' });
+  componentDidMount() {
+    fetch('https://api.spacexdata.com/v2/launches/all')
+      .then(resp => resp.json())
+      .then(data => this.setState({ launches: data }))
+      .catch(err => console.log(err));
+  }
+
+  handleLaunchClick(el) {
+    this.setState({ viewName: 'details', launch: el });
   }
 
   handleBackClick() {
@@ -59,13 +71,18 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   }
 
   render() {
-    return (
+    return (this.state.viewName ?
       <main className="page-container">
         <div className="page-content">
           {this.activeViewComponent}
           <Footer />
         </div>
-      </main>
+      </main> : (<div>
+        {console.log('loder')}
+        <RingLoader
+          color="#fff"
+        />
+      </div>)
     );
   }
 }

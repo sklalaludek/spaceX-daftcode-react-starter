@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class FilterBottons extends Component {
-  render() {
-    const { options } = this.props;
-    return (
-      <div>
-        <button onClick={this.props.onClick}>All rockets</button>
-        {options.map((el, i) => (
-          <button
-            key={i}
-            onClick={this.props.onClick}
-            value={el}
-          >
-            {el}
-          </button>
+const FilterBottons = (props) => {
+  const { options } = props;
+  return (
+    <div className="filter-buttons-container">
+      <button onClick={props.onClick}>All rockets</button>
+      {options.map((el, i) => (
+        <button
+          key={i}
+          onClick={props.onClick}
+          value={el}
+        >
+          {el}
+        </button>
         ))}
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default FilterBottons;
