@@ -1,7 +1,11 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
+import { observable, action } from 'mobx';
 import Moon from '../components/LaunchesList/Moon';
 import FilterButtons from '../components/LaunchesList/FilterBottons';
 
+@inject('store')
+@observer
 class LaunchesList extends React.Component { // eslint-disable-line react/prefer-stateless-function
   state = {};
 
@@ -15,16 +19,21 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
   }
 
   get filteredLaunches() {
-    const { rocketNameFilter } = this.state;
+    const rocketNameFilter = this.props.store.rocketFilter;
     const { launches } = this.props;
 
     if (!rocketNameFilter) return launches;
     return launches.filter(launch => launch.rocket.rocket_name === rocketNameFilter);
   }
 
+  @action
   handleFilterChange = (event) => {
-    const value = event.target.value;
-    this.setState({ rocketNameFilter: value });
+    const { value } = event.target;
+    // this.setState({ rocketNameFilter: value });
+
+    const { store } = this.props;
+    store.setFilter(value);
+    // store.dispatch(getFilter(value));
   }
 
   getDate = (date) => {

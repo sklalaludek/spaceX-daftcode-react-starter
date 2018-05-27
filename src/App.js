@@ -1,24 +1,30 @@
 import { hot } from 'react-hot-loader';
 import * as React from 'react';
-import { RingLoader } from 'react-spinners';
+
+import { observer, inject } from 'mobx-react';
+import { action } from 'mobx';
+
 /* launche details */
-import launch from './assets/launch.json';
-import launchSite from './assets/launch_site.json';
-import rocket from './assets/rocket.json';
+// import launch from './assets/launch.json';
+// import launchSite from './assets/launch_site.json';
+// import rocket from './assets/rocket.json';
 import LaunchDetails from './view/LaunchDetails';
 /* launche list */
 import LaunchesList from './view/LaunchesList';
+
+import DevTools from 'mobx-react-devtools';
 
 /* footer */
 import Footer from './view/Footer';
 
 import './styles/theme.sass';
 
+@inject('store')
+@observer
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
     this.state = {
-      viewName: 'list',
       launches: [],
       launch: '',
       launchSite: '',
@@ -29,10 +35,18 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     this.handleBackClick = this.handleBackClick.bind(this);
   }
 
-  get activeViewComponent() {
-    const { viewName, launches } = this.state;
+  componentDidMount() {
+    fetch('https://api.spacexdata.com/v2/launches/all')
+      .then(resp => resp.json())
+      .then(data => this.setState({ launches: data }))
+      .catch(err => console.log(err));
+  }
 
-    switch (viewName) {
+  get activeViewComponent() {
+    const { launches } = this.state;
+    const { store } = this.props;
+
+    switch (store.currentViewName) {
       case 'list':
         return (
           <LaunchesList
@@ -55,34 +69,36 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     }
   }
 
-  componentDidMount() {
-    fetch('https://api.spacexdata.com/v2/launches/all')
-      .then(resp => resp.json())
-      .then(data => this.setState({ launches: data }))
-      .catch(err => console.log(err));
-  }
-
+  @action
   handleLaunchClick(el) {
-    this.setState({ viewName: 'details', launch: el });
+    // this.setState({ viewName: 'details', launch: el });
+    this.setState({ launch: el });
+    const { store } = this.props;
+    store.switchView('details');
   }
 
+  @action
   handleBackClick() {
-    this.setState({ viewName: 'list' });
+    // this.setState({ viewName: 'list' });
+    const { store } = this.props;
+    store.switchView('list');
   }
 
   render() {
-    return (this.state.viewName ?
+    return (this.state.launches.length ? (
       <main className="page-container">
         <div className="page-content">
-          {this.activeViewComponent}
+          <div>
+            {this.activeViewComponent}
+          </div>
           <Footer />
         </div>
-      </main> : (<div>
-        {console.log('loder')}
-        <RingLoader
-          color="#fff"
-        />
-      </div>)
+        <DevTools />
+      </main>
+    ) : (<div id="loader">
+      <div id="box" />
+      <div id="hill" />
+         </div>)
     );
   }
 }
