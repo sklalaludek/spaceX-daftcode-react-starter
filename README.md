@@ -1,19 +1,27 @@
-# ⚛ daftcode-react-starter
+# spaceX
 
-React boilerplate for everyone 
+> check out the live demo: [spaceX](https://sklalaludek.github.io/spaceX-daftcode-react-starter/)
+
+This project was bootstrapped with:
+
+## ⚛ daftcode-react-starter
+
+React boilerplate for everyone
 
 ## 🕹 Features
+
 * [React (v16.3)](https://reactjs.org) - a JavaScript library for building user interfaces
 * [Babel](https://babeljs.io) - a JavaScript compiler
 * [Webpack (v4.5)](https://webpack.js.org) with plugins - a module bundler
 * [PostCSS](https://github.com/postcss/postcss), [Sass](https://sass-lang.com) - add a bit of style to your website
 * [React Hot Loader (v4)](https://github.com/gaearon/react-hot-loader) Tweak React components in real time
 * Linters + [Prettier](https://prettier.io)
-Tweak React components in real time ⚛️⚡️
+  Tweak React components in real time ⚛️⚡️
 
 ## 🔧 Installation
 
 Clone repository to your local workspace:
+
 ```bash
 git clone https://github.com/mkaczkowski/daftcode-react-starter.git
 ```
