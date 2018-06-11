@@ -61,6 +61,12 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
     return months[parseInt(month, 10) - 1];
   }
 
+  /* handleClick = () => {
+    rocket={props.rocket}
+    launch={props.launch}
+    launchSite={props.launchSite}
+  } */
+
   render() {
     const rocketDetails = {
       cursor: 'pointer',
@@ -68,7 +74,7 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
     const listStyle = {
       color: 'white',
       textOverflow: 'ellipsis',
-      display: 'inline-block',
+      /* display: 'inline-block', */
       width: '100px',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -84,8 +90,9 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
           <ul>
             {this.filteredLaunches.length ? this.filteredLaunches.map((el, i) => (
               <li onClick={() => this.props.onLaunchClick(el)} key={el.launch_date_unix} className="rocket-item">
-                <div>{this.getDate(el.launch_date_utc)}</div>
-                <div style={rocketDetails}>rocket: {el.rocket.rocket_name} | <span style={listStyle}>launch site: {el.launch_site.site_name_long}</span></div>
+                <div className="listing__date">{this.getDate(el.launch_date_utc)}</div>
+                <span className="listing__arrow" />
+                <div style={rocketDetails}><span>rocket:</span> {el.rocket.rocket_name} | <span style={listStyle}>launch site: {el.launch_site.site_name_long}</span></div>
               </li>
             )) : 'Sorry, no launches found'}
           </ul>
