@@ -879,7 +879,38 @@ ul {
     text-align: center;
     font-weight: 400; }
 
-ul {
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.filter-buttons-container {
+  margin-bottom: 20px; }
+  .filter-buttons-container__btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid #ffffff;
+    padding: 1rem 4rem;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: #ffffff;
+    cursor: pointer; }
+  .filter-buttons-container__btn:hover {
+    background-color: #ffffff;
+    color: #22272b; }
+  .filter-buttons-container__btn:last-of-type {
+    margin-right: 0; }
+
+.listing > ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -889,7 +920,7 @@ ul {
           flex-flow: row wrap;
   text-transform: uppercase; }
 
-ul:after {
+.listing > ul:after {
   content: '';
   height: 165%;
   width: 0;
@@ -897,7 +928,7 @@ ul:after {
   position: absolute;
   left: 50%; }
 
-li {
+.listing li {
   list-style: none;
   width: calc(50% - 3em);
   margin-top: 3em;
@@ -910,10 +941,10 @@ li {
           flex-direction: column;
   color: white; }
 
-li:nth-child(2n + 1) {
+.listing li:nth-child(2n + 1) {
   margin: 0 3em 0 0; }
 
-li:nth-child(2n + 0) {
+.listing li:nth-child(2n + 0) {
   margin-left: 0.5em;
   margin-top: 4em; }
 
@@ -938,7 +969,7 @@ li:nth-child(2n + 0) {
   left: -4.7%;
   top: -1px; }
 
-li:nth-child(2n + 1) .listing__arrow:before {
+.listing li:nth-child(2n + 1) .listing__arrow:before {
   left: 100%; }
 
 .listing__arrow:after {
@@ -955,12 +986,12 @@ li:nth-child(2n + 1) .listing__arrow:before {
   border-bottom: 5px solid transparent;
   border-left: 10px solid #e8c209; }
 
-li:nth-child(2n + 0) .listing__arrow:after {
+.listing li:nth-child(2n + 0) .listing__arrow:after {
   left: -10px;
   border-right: 10px solid #e8c209;
   border-left: 0; }
 
-span {
+.listing span {
   color: #999; }
 
 
