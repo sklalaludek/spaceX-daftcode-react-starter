@@ -7,7 +7,7 @@ import Mission from '../components/LaunchDetails/Mission';
 
 const LaunchDetails = props => (
   <div className="details">
-    {console.log(props)}
+    {console.log('props launchDetails', props)}
     <Header
       onBackClick={props.onBackClick}
     />

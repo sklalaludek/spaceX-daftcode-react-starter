@@ -22,8 +22,8 @@ import './styles/theme.sass';
 @inject('store')
 @observer
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       launches: [],
       launch: '',
@@ -31,7 +31,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
       rocket: '',
     };
 
-    // this.handleLaunchClick = this.handleLaunchClick.bind(this);
+    this.handleLaunchClick = this.handleLaunchClick.bind(this);
     this.handleBackClick = this.handleBackClick.bind(this);
   }
 
@@ -51,7 +51,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
         return (
           <LaunchesList
             launches={this.state.launches}
-            onLaunchClick={() => this.handleLaunchClick()}
+            onLaunchClick={this.handleLaunchClick}
           />
         );
 
@@ -59,8 +59,8 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
         return (
           <LaunchDetails
             launch={this.state.launch}
-            // launchSite={this.state.launch.launchSite}
-            // rocket={this.state.launch.rocket}
+            launchSite={this.state.launch.launch_site}
+            rocket={this.state.launch.rocket}
             onBackClick={this.handleBackClick}
           />
         );
@@ -72,10 +72,11 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   @action
   handleLaunchClick(el) {
     // this.setState({ viewName: 'details', launch: el });
-    console.log(el);
+    console.log('App: ', el, '!!!!!!!!!!!!');
     this.setState({ launch: el });
     const { store } = this.props;
     store.switchView('details');
+    console.log('store', store);
   }
 
   @action
@@ -99,7 +100,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     ) : (<div id="loader">
       <div id="box" />
       <div id="hill" />
-         </div>)
+    </div>)
     );
   }
 }

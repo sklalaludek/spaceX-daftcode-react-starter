@@ -89,7 +89,7 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
         <div className="listing">
           <ul>
             {this.filteredLaunches.length ? this.filteredLaunches.map((el, i) => (
-              <li onClick={() => this.props.onLaunchClick(el)} key={el.launch_date_unix} className="rocket-item">
+              <li onClick={() => { this.props.onLaunchClick(el); }} key={el.launch_date_unix} className="rocket-item">
                 <div className="listing__date">{this.getDate(el.launch_date_utc)}</div>
                 <span className="listing__arrow" />
                 <div style={rocketDetails}><span>rocket:</span> {el.rocket.rocket_name} | <span style={listStyle}>launch site: {el.launch_site.site_name_long}</span></div>

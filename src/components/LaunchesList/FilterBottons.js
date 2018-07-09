@@ -14,7 +14,7 @@ const FilterBottons = (props) => {
         >
           {el}
         </button>
-        ))}
+      ))}
     </div>
   );
 };

@@ -1,8 +1,17 @@
 @import "~styles/settings"
 @import "~styles/base"
 
-body,
-  background-color: white!important;
+*
+  box-sizing: border-box
+
+body
+  background-color: white!important
+
+.details
+  min-height: calc(100vh - 10rem)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
 .info-section
   margin: 0 2rem
@@ -20,7 +29,7 @@ body,
 
   &__date
     color: $cool-grey
-    letter-spacing: 1rem;
+    letter-spacing: 1rem
 
   &__info-title
     font-size: 3.6rem

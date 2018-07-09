@@ -18,8 +18,9 @@ const LaunchDetailsInfo = props => (
         <div className="info-section__rocket-details">
           <div>
             <ul>
-              <li><span className="info-section__title-list">name: </span>{props.rocket.name}</li>
-              <li><span className="info-section__title-list">company: </span> {props.rocket.company}</li>
+              {console.log('props w details info', props)}
+              <li><span className="info-section__title-list">name: </span>{props.rocket.rocket_name}</li>
+              <li><span className="info-section__title-list">type: </span> {props.rocket.rocket_type}</li>
               {/* <li><span className="info-section__title-list">height: </span> {props.rocket.height.meters}m / {props.rocket.height.feet}ft</li>
               <li><span className="info-section__title-list">diameter: </span> {props.rocket.diameter.meters}m / {props.rocket.diameter.feet}ft</li>
               <li><span className="info-section__title-list">mass: </span>{props.rocket.mass.kg}kg / {props.rocket.mass.lb}lb</li> */}
@@ -41,16 +42,16 @@ const LaunchDetailsInfo = props => (
         <div className="info-section__details-details">
           <div>
             <ul>
-              <li><span className="info-section__title-list">name: </span>{props.launchSite.full_name}</li>
+              <li><span className="info-section__title-list">name: </span>{props.launchSite.site_name}</li>
             </ul>
           </div>
           <div>
             <ul>
-              <li>{/* <span className="info-section__title-list">location: </span>{props.launchSite.location.name}, {props.launchSite.location.region} */}</li>
+              <li><span className="info-section__title-list">year: </span>{props.launch.launch_year}</li>
             </ul>
           </div>
         </div>
-        <p>{/* {props.launchSite.details}*/}</p>
+        <p>{/* {props.launchSite.details} */}</p>
       </div>
     </div>
   </section>
