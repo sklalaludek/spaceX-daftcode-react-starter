@@ -7,7 +7,6 @@ import Mission from '../components/LaunchDetails/Mission';
 
 const LaunchDetails = props => (
   <div className="details">
-    {console.log('props launchDetails', props)}
     <Header
       onBackClick={props.onBackClick}
     />
@@ -22,15 +21,17 @@ const LaunchDetails = props => (
 );
 
 LaunchDetails.propTypes = {
-  rocket: PropTypes.object,
-  launch: PropTypes.object,
-  launchSite: PropTypes.object,
+  rocket: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  launch: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  launchSite: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  onBackClick: PropTypes.func,
 };
 
 LaunchDetails.defaultProps = {
   rocket: {},
   launch: {},
   launchSite: {},
+  onBackClick: null,
 };
 
 export default LaunchDetails;

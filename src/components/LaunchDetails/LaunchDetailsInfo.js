@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Counter from './Counter';
 
 const LaunchDetailsInfo = props => (
@@ -18,12 +19,18 @@ const LaunchDetailsInfo = props => (
         <div className="info-section__rocket-details">
           <div>
             <ul>
-              {console.log('props w details info', props)}
               <li><span className="info-section__title-list">name: </span>{props.rocket.rocket_name}</li>
               <li><span className="info-section__title-list">type: </span> {props.rocket.rocket_type}</li>
-              {/* <li><span className="info-section__title-list">height: </span> {props.rocket.height.meters}m / {props.rocket.height.feet}ft</li>
-              <li><span className="info-section__title-list">diameter: </span> {props.rocket.diameter.meters}m / {props.rocket.diameter.feet}ft</li>
-              <li><span className="info-section__title-list">mass: </span>{props.rocket.mass.kg}kg / {props.rocket.mass.lb}lb</li> */}
+              {/* <li><span className="info-section__title-list">
+                height: </span> {props.rocket.height.meters}m / {props.rocket.height.feet}ft
+              </li>
+              <li>
+                <span className="info-section__title-list">diameter: </span> {props.rocket.diameter.meters}m / {props.rocket.diameter.feet}ft
+              </li>
+              <li>
+                <span className="info-section__title-list">mass: </span>{props.rocket.mass.kg}kg / {props.rocket.mass.lb}lb
+              </li>
+              */}
             </ul>
           </div>
           <div>
@@ -56,5 +63,11 @@ const LaunchDetailsInfo = props => (
     </div>
   </section>
 );
+
+LaunchDetailsInfo.propTypes = {
+  launch: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  rocket: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  launchSite: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default LaunchDetailsInfo;
