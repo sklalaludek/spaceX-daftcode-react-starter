@@ -1,8 +1,10 @@
 import { hot } from 'react-hot-loader';
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { observer, inject } from 'mobx-react';
 import { action } from 'mobx';
+import DevTools from 'mobx-react-devtools';
 
 /* launche details */
 // import launch from './assets/launch.json';
@@ -11,8 +13,6 @@ import { action } from 'mobx';
 import LaunchDetails from './view/LaunchDetails';
 /* launche list */
 import LaunchesList from './view/LaunchesList';
-
-import DevTools from 'mobx-react-devtools';
 
 /* footer */
 import Footer from './view/Footer';
@@ -27,8 +27,6 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     this.state = {
       launches: [],
       launch: '',
-      launchSite: '',
-      rocket: '',
     };
 
     this.handleLaunchClick = this.handleLaunchClick.bind(this);
@@ -39,18 +37,18 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     fetch('https://api.spacexdata.com/v2/launches/all')
       .then(resp => resp.json())
       .then(data => this.setState({ launches: data }))
-      .catch(err => console.log(err));
+      .catch(err => err);
   }
 
   get activeViewComponent() {
-    const { launches } = this.state;
-    const { store } = this.props;
+    const { launches, launch } = this.state;
+    const { currentViewName } = this.props.store;
 
-    switch (store.currentViewName) {
+    switch (currentViewName) {
       case 'list':
         return (
           <LaunchesList
-            launches={this.state.launches}
+            launches={launches}
             onLaunchClick={this.handleLaunchClick}
           />
         );
@@ -58,9 +56,9 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
       case 'details':
         return (
           <LaunchDetails
-            launch={this.state.launch}
-            launchSite={this.state.launch.launch_site}
-            rocket={this.state.launch.rocket}
+            launch={launch}
+            launchSite={launch.launch_site}
+            rocket={launch.rocket}
             onBackClick={this.handleBackClick}
           />
         );
@@ -71,23 +69,19 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
 
   @action
   handleLaunchClick(el) {
-    // this.setState({ viewName: 'details', launch: el });
-    console.log('App: ', el, '!!!!!!!!!!!!');
     this.setState({ launch: el });
     const { store } = this.props;
     store.switchView('details');
-    console.log('store', store);
   }
 
   @action
   handleBackClick() {
-    // this.setState({ viewName: 'list' });
     const { store } = this.props;
     store.switchView('list');
   }
 
   render() {
-    return (this.state.launches.length ? (
+    return this.state.launches.length ? (
       <main className="page-container">
         <div className="page-content">
           <div>
@@ -97,12 +91,17 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
         </div>
         <DevTools />
       </main>
-    ) : (<div id="loader">
-      <div id="box" />
-      <div id="hill" />
-    </div>)
+    ) : (
+      <div id="loader">
+        <div id="box" />
+        <div id="hill" />
+      </div>
     );
   }
 }
+
+App.propTypes = {
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default hot(module)(App);

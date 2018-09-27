@@ -21,6 +21,10 @@
     margin-right: auto
     position: relative
     cursor: pointer
+    background: transparent
+    border: none
+    &:focus 
+      outline: none
 
   &__arrow
     position: absolute
@@ -53,7 +57,7 @@
     width: 25rem
     flex: 0 1 auto
     position: absolute
-    left: 50%;
+    left: 50%
     transform: translateX(-50%)
 
   &__logo > img
