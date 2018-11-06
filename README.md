@@ -1,7 +1,7 @@
 # spaceX
 
 The application presents data available through the free SpaceX launches API.
-The project created together with @AleksandraKaminska.
+The project created together with [AleksandraKaminska](https://github.com/AleksandraKaminska).
 
 > check out the live demo: [spaceX](https://sklalaludek.github.io/spaceX-daftcode-react-starter/)
 
