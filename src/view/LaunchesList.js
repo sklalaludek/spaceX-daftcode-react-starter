@@ -92,13 +92,12 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
 
 LaunchesList.propTypes = {
   launches: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  store: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   onLaunchClick: PropTypes.func,
 };
 
 LaunchesList.defaultProps = {
   onLaunchClick: null,
-  store: {},
 };
 
 export default LaunchesList;

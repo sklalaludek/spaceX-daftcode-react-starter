@@ -6,12 +6,12 @@ class MainStore {
   @observable rocketFilter = null;
 
   @action
-  switchView(viewName) {
+  switchView = (viewName) => {
     this.currentViewName = viewName;
   }
 
   @action
-  setFilter(filterName) {
+  setFilter = (filterName) => {
     this.rocketFilter = filterName;
   }
 }
